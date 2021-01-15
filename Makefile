@@ -3,6 +3,11 @@
 OPT ?= -g2
 # (C) Profiling mode: opt, but w/debugging symbols
 # OPT ?= -O2 -g2 -DNDEBUG
+#** ZyL comments:
+#** First, make dumplicats the environment variables with shell
+#** Second, make refers to vairalbes via $(var) or ${var}, while shell via $var or ${var}
+#** Third, for $(shell cmd), make will substitue variables in cmd first, then execute the cmd via shell
+#** Conclusion: If the CC CXX TARGET_OS have not been set in make, they will be set in ./build_config
 $(shell CC="$(CC)" CXX="$(CXX)" TARGET_OS="$(TARGET_OS)" ./build_config 1>&2)
 include config.mk
 

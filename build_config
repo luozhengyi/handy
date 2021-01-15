@@ -131,7 +131,8 @@ case "$TARGET_OS" in
         echo "Unknown platform!" >&2
         exit 1
 esac
-
+#** ZyL comments:
+#** g++ compile code from stdin
 $CXX -x c++ - -o $TMPDIR/handy_build_config.out <<EOF
 int main(){
   unsigned short a = 1;
