@@ -19,6 +19,7 @@ struct EventBase : public EventBases {
     EventBase(int taskCapacity = 0);
     ~EventBase();
     //处理已到期的事件,waitMs表示若无当前需要处理的任务，需要等待的时间
+    // waitMs epoll_wait等待的毫秒数，如果过了waitMs表示，epoll_wait没有等到事件，本次等待就是到期了。
     void loop_once(int waitMs);
     //进入事件处理循环
     void loop();
